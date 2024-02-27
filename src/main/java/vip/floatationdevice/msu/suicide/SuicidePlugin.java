@@ -29,8 +29,7 @@ public final class SuicidePlugin extends JavaPlugin
         log = getLogger();
 
         // initialize config manager
-        cm = new ConfigManager(this, 1);
-        cm.initialize();
+        cm = new ConfigManager(this, 1).initialize();
 
         // initialize translation engine
         i18n = new I18nManager(this).setLanguage(cm.get(String.class, "language"));
