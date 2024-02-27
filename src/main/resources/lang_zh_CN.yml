@@ -1,0 +1,10 @@
+language: "中文（中国）"
+language-file-version: 1
+language-file-contributor: "MCUmbrella"
+
+usage: "用法: \n  /suicide : 自杀"
+err-permission-denied: "权限不够"
+err-player-only: "此命令只能由玩家使用"
+err-generic: "目前不能轻生"
+suicide-broadcast: "{0}选择了轻松的方式解脱"
+suicide-success: "你自杀了"

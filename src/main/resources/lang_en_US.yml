@@ -1,0 +1,10 @@
+language: "English (US)"
+language-file-version: 1
+language-file-contributor: "MCUmbrella"
+
+usage: "Usage: \n  /suicide"
+err-permission-denied: "You don't have permission to do that"
+err-player-only: "This command is only available to players"
+err-generic: "Cannot suicide right now"
+suicide-broadcast: "{0} committed suicide"
+suicide-success: "You committed suicide"

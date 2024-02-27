@@ -1,0 +1,14 @@
+name: Suicide
+version: '${project.version}'
+main: vip.floatationdevice.msu.suicide.SuicidePlugin
+api-version: 1.13
+authors: [MCUmbrella]
+description: Kills the command sender
+website: https://github.com/MSUPugins/Suicide
+commands:
+  suicide:
+    description: "Kill the command sender"
+permissions:
+  suicide.suicide:
+    description: "Allows the player to use /suicide"
+    default: true

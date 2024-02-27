@@ -1,0 +1,8 @@
+# DO NOT change if you don't know how to update the config file manually.
+version: 1
+
+# Language
+language: "en_US"
+
+# Cooldown between suicides (in seconds).
+cooldown: 180
