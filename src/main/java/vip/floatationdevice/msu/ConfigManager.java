@@ -134,8 +134,8 @@ public class ConfigManager
      * Get the specified field's value as the given type.
      * @param type The Class object of the expected type.
      * @param path The path of the field to get value from.
-     * @return The value of the field with the specified type.
      * @param <T> The class of the expected type.
+     * @return The value of the field with the specified type.
      */
     public <T> T get(Class<T> type, String path)
     {
@@ -155,8 +155,8 @@ public class ConfigManager
      * Same as get(Class, String), but a default value is used if there's error parsing the value.
      * @param type The Class object of the expected type.
      * @param path The path of the field to get value from.
-     * @return The value of the field with the specified type, or `def` on error.
      * @param <T> The class of the expected type.
+     * @return The value of the field with the specified type, or `def` on error.
      */
     public <T> T get(Class<T> type, String path, T def)
     {

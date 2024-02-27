@@ -3,7 +3,7 @@ package vip.floatationdevice.msu.suicide;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import vip.floatationdevice.msu.ConfigManager;
-import vip.floatationdevice.msu.I18nUtil;
+import vip.floatationdevice.msu.I18nManager;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -13,6 +13,7 @@ public final class SuicidePlugin extends JavaPlugin
 {
     private static SuicidePlugin instance;
     ConfigManager cm;
+    I18nManager i18n;
     Logger log;
     HashMap<UUID, Boolean> suicideData = new HashMap<>();
 
@@ -32,8 +33,8 @@ public final class SuicidePlugin extends JavaPlugin
         cm.initialize();
 
         // initialize translation engine
-        I18nUtil.setLanguage(getClass(), cm.get(String.class, "language"));
-        log.info("Language: " + I18nUtil.getLanguage() + " by " + I18nUtil.getLanguageFileContributor());
+        i18n = new I18nManager(this).setLanguage(cm.get(String.class, "language"));
+        log.info("Language: " + i18n.getLanguage() + " by " + i18n.getLanguageFileContributor());
 
         // register command and event listener
         getCommand("suicide").setExecutor(new SuicideCommand());

@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static vip.floatationdevice.msu.I18nUtil.translate;
+import static vip.floatationdevice.msu.suicide.SuicidePlugin.getInstance;
 
 /**
  * Command executor for the "/suicide" command.
@@ -18,33 +18,33 @@ public class SuicideCommand implements CommandExecutor
         // skip console
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(translate("err-player-only"));
+            sender.sendMessage(getInstance().i18n.translate("err-player-only"));
             return false;
         }
         // check usage
         if(args.length != 0)
         {
-            sender.sendMessage(translate("usage"));
+            sender.sendMessage(getInstance().i18n.translate("usage"));
             return false;
         }
         // check permissions
         if(!sender.hasPermission("suicide.suicide"))
         {
-            sender.sendMessage(translate("err-permission-denied"));
+            sender.sendMessage(getInstance().i18n.translate("err-permission-denied"));
             return true;
         }
 
         Player p = (Player) sender;
-        if(p.getHealth() <= 0.0 || SuicidePlugin.getInstance().hasCooldown(p.getUniqueId()))
+        if(p.getHealth() <= 0.0 || getInstance().hasCooldown(p.getUniqueId()))
         {
             // disallow dead players and cooling down players
-            p.sendMessage(translate("err-generic"));
+            p.sendMessage(getInstance().i18n.translate("err-generic"));
         }
         else
         {
-            SuicidePlugin.getInstance().addCooldown(p.getUniqueId());
+            getInstance().addCooldown(p.getUniqueId());
             p.setHealth(0.0);
-            p.sendMessage(translate("suicide-success"));
+            p.sendMessage(getInstance().i18n.translate("suicide-success"));
         }
 
         return true;
