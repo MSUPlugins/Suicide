@@ -11,41 +11,31 @@ import java.util.logging.Logger;
 
 public final class SuicidePlugin extends JavaPlugin
 {
-    private static SuicidePlugin instance;
-    ConfigManager cm;
-    I18nManager i18n;
-    Logger log;
+    static SuicidePlugin instance;
+    static Logger log;
+    static ConfigManager cm;
+    static I18nManager i18n;
     HashMap<UUID, Boolean> suicideData = new HashMap<>();
-
-    public static SuicidePlugin getInstance()
-    {
-        return instance;
-    }
 
     @Override
     public void onEnable()
     {
         instance = this;
         log = getLogger();
-
-        // initialize config manager
         cm = new ConfigManager(this, 1).initialize();
-
-        // initialize translation engine
         i18n = new I18nManager(this).setLanguage(cm.get(String.class, "language"));
-        log.info("Language: " + i18n.getLanguage() + " by " + i18n.getLanguageFileContributor());
 
-        // register command and event listener
         getCommand("suicide").setExecutor(new SuicideCommand());
         getServer().getPluginManager().registerEvents(new SuicideEventListener(), this);
 
-        log.info("Suicide has been loaded");
+        log.info("Suicide loaded");
     }
 
     @Override
     public void onDisable()
     {
         log.info("Suicide is being disabled");
+
         Bukkit.getScheduler().cancelTasks(this); // remove all remaining cooldowns
     }
 

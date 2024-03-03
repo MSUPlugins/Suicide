@@ -6,7 +6,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import static vip.floatationdevice.msu.suicide.SuicidePlugin.getInstance;
+import static vip.floatationdevice.msu.suicide.SuicidePlugin.i18n;
+import static vip.floatationdevice.msu.suicide.SuicidePlugin.instance;
 
 /**
  * If player's death was caused by using "/suicide", change the death message.
@@ -17,10 +18,10 @@ public class SuicideEventListener implements Listener
     public void onPlayerDeath(PlayerDeathEvent evt)
     {
         Player p = evt.getEntity();
-        if(getInstance().suicideData.containsKey(p.getUniqueId()) && getInstance().suicideData.get(p.getUniqueId()))
+        if(instance.suicideData.containsKey(p.getUniqueId()) && instance.suicideData.get(p.getUniqueId()))
         {
-            evt.setDeathMessage(getInstance().i18n.translate("suicide-broadcast").replace("{0}", p.getName()));
-            getInstance().suicideData.put(p.getUniqueId(), false);
+            evt.setDeathMessage(i18n.translate("suicide-broadcast").replace("{0}", p.getName()));
+            instance.suicideData.put(p.getUniqueId(), false);
         }
     }
 }

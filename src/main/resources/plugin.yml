@@ -1,10 +1,12 @@
 name: Suicide
 version: '${project.version}'
+description: Kills the command sender
+authors: [MCUmbrella]
+website: https://github.com/MSUPlugins/Suicide
 main: vip.floatationdevice.msu.suicide.SuicidePlugin
 api-version: 1.13
-authors: [MCUmbrella]
-description: Kills the command sender
-website: https://github.com/MSUPugins/Suicide
+depend:
+  - MSUCore
 commands:
   suicide:
     description: "Kill the command sender"
