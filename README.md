@@ -7,4 +7,4 @@ Kills the command sender
     - `suicide.suicide`: Allows the player to use "/suicide"
 
 # Config:
-- See [config.yml](https://github.com/MSUPugins/Suicide/blob/master/src/main/resources/config.yml)
+- See [config.yml](https://github.com/MSUPlugins/Suicide/blob/master/src/main/resources/config.yml)
